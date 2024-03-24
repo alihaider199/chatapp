@@ -5,37 +5,34 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Quick Chat</title>
-    <link rel="stylesheet" href="app.css" />
+    <link rel="stylesheet" href="./app.css" />
   </head>
+
   <body>
     <div id="appContainer" class="flex-column">
       <header>
         <div class="container flex-column flex-center">
-          <h1>Quick Chat</h1>
+          <h1>RealTime ChatApp</h1>
           <p class="light-text">The easiest way to get your message across.</p>
         </div>
       </header>
 
       <div id="mainContent" class="container flex-grow-1 flex-column">
         <section id="login" class="">
-          <h2 class="text-center">Login</h2>
-          <form id="loginForm" class="flex">
-            <input
-              type="text"
-              name="username"
-              id="usernameInput"
-              placeholder="Username"
-              class="flex-grow-1"
-            />
-            <input
-              type="password"
-              name="password"
-              id="passwordInput"
-              placeholder="Password"
-              class="flex-grow-1"
-            />
-            <button id="loginBtn">Login</button>
-          </form>
+          <div class="login-box">
+            <h2>تسجيل الدخول</h2>
+            <form>
+              <div class="user-box">
+                <label>اسم المستخدم</label>
+                <input id="usernameInput" type="text" name="" required="" />
+              </div>
+              <div class="user-box">
+                <label>كلمة المرور</label>
+                <input id="passwordInput" type="password" name="" required="" />
+              </div>
+              <a href="#" id="loginBtn"> تسجيل الدخول </a>
+            </form>
+          </div>
         </section>
 
         <section id="chat" class="flex-grow-1 flex-column hidden">
@@ -43,19 +40,18 @@
           <form id="messageForm" class="flex">
             <input
               type="text"
-              name="message"
+              name="message "
               id="messageInput"
               class="flex-grow-1"
             />
             <button id="sendBtn">Send</button>
-            <button id="logoutBtn">Logout</button>
-            <!-- Add logout button -->
           </form>
+          <button id="logoutBtn">Logout</button>
         </section>
       </div>
     </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.1.0/socket.io.js"></script>
-    <script src="app.js"></script>
+    <script src="./app.js"></script>
   </body>
 </html>

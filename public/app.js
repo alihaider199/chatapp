@@ -3,10 +3,10 @@ const messageTypes = { LEFT: "left", RIGHT: "right", LOGIN: "login" };
 
 // Chat stuff
 const chatWindow = document.getElementById("chat");
-const logoutBtn = document.getElementById("logoutBtn");
 const messagesList = document.getElementById("messagesList");
 const messageInput = document.getElementById("messageInput");
 const sendBtn = document.getElementById("sendBtn");
+const logoutBtn = document.getElementById("logoutBtn"); // Added logout button
 
 // Login stuff
 let username = "";
@@ -125,8 +125,12 @@ loginBtn.addEventListener("click", (e) => {
     })
     .catch((error) => console.error("Error loading users:", error));
 });
-// Add event listener for logout button
-logoutBtn.addEventListener("click", logout);
+
+logoutBtn.addEventListener("click", logout); // Added event listener for logout button
+
+sendMessage = (message) => {
+  socket.emit("message", message);
+};
 
 // Logout function
 function logout() {
@@ -135,10 +139,4 @@ function logout() {
   // Show login window and hide chat window
   loginWindow.classList.remove("hidden");
   chatWindow.classList.add("hidden");
-  // Redirect to login route (if applicable)
-  // window.location.href = "/login"; // Example redirect to login route
 }
-
-sendMessage = (message) => {
-  socket.emit("message", message);
-};
